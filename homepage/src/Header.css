@@ -1,24 +1,27 @@
 /* Add a black background color to the top navigation */
 .container-fluid {
-    height: 7ch;
-    background-color: rgb(73, 85, 194);
-    /* background-color: white; */
+    height: 8ch;
+    /* background-color: rgb(73, 85, 194); */
+    background-color: white;
+
     overflow: hidden;
   }
 
   /* Style the links inside the navigation bar */
 .container-fluid a {
     float: left;
-    color: #f2f2f2;
+    color: #575656;
+    margin-top: 8px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    margin-left: 8px;
   }
   
   /* Change the color of links on hover */
   .container-fluid a:hover {
-    margin-top: 0.3ch;
+    margin-top: 0.9ch;
     padding-top: 1.2ch;
     border-radius: 8ch;
     background-color: #ddd;
@@ -28,17 +31,19 @@
   /* Add a color to the active/current link */
   .container-fluid a.home {
     box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-    margin-top: 0.3ch;
+    margin-top: 0.9ch;
     padding-top: 1ch;
     border-radius: 8ch;
     background-color: #383838;
     color: white;
   }
+
   .container-fluid a.login {
-    margin-top: 0.3ch;
+    margin-top: 0.9ch;
     padding-top: 1.2ch;
     border-radius: 8ch;
     background-color: #383838;
+    color: rgb(24, 184, 233);
     float:right;
 }
 .container-fluid a.home:hover{
@@ -68,7 +73,7 @@
     font-size: 0.9rem;
     padding: 0 2rem 0 1.2rem;
     float: right;
-    margin-top: 2ch;
+    margin-top: 2.8ch;
 
 }
 #button2 {
@@ -83,6 +88,6 @@
   font-size: 0.9rem;
   padding: 0 0.9rem 0 0.6rem;
   float: right;
-  margin-top: 2ch;
+  margin-top: 2.8ch;
 
 }

@@ -1,0 +1,174 @@
+// Variables:
+$dark-blue: #002060;
+$light-blue: #003296;
+
+#nav {
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    width: 25%;
+    height: 100vh;
+    margin-left: 0vw;
+    text-decoration: none;
+    border-right: 1px solid #d1d1d1;
+    padding-left: 25px;
+    padding-top: 25px;
+    margin-top: -50px;
+
+    #bookapt {
+        width: 75%;
+        text-align: center;
+        background-color: $dark-blue;
+        border-radius: 10px;
+
+        &:hover {
+            font-weight: 600;
+            background-color: rgb(255, 255, 255);
+            color: $dark-blue;
+            border: 2px solid $dark-blue;
+        }
+    }
+
+    #navigate{
+        color: $dark-blue;
+    }
+
+    li {
+        color: rgb(255, 255, 255);
+        padding: 15px 0px;
+
+        &:hover {
+            font-weight: 600;
+        }
+    }
+
+    .button {
+        color: $dark-blue;
+        text-decoration: none;
+    }
+}
+
+#content {
+    background-color: #ffffff;
+    position: relative;
+    margin-left: 30vw;
+    margin-top: 5vh;
+    width: 60vw;
+    height: 90vh;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 15px;
+
+    h1 {
+        padding-top: 5vh;
+        padding-left: 5vw;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        color: $dark-blue;
+    }
+
+    #data {
+        margin: 5vh 5vw;
+
+        th {
+            padding: 15px 0px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: $dark-blue;
+        }
+
+        td {
+            padding: 15px 10px;
+        }
+    }
+
+    #twinButtons {
+        #btn1 {
+            margin: 2vh 5vw;
+            width: 30%;
+            text-align: center;
+            background-color: $dark-blue;
+            border-radius: 10px;
+    
+            &:hover {
+                font-weight: 600;
+                background-color: rgb(255, 255, 255);
+                color: $dark-blue;
+                border: 2px solid $dark-blue;
+            }
+        }
+        #btn2{
+            margin: 2vh 5vw;
+            width: 30%;
+            text-align: center;
+            background-color: $dark-blue;
+            border-radius: 10px;
+    
+            &:hover {
+                font-weight: 600;
+                background-color: rgb(255, 255, 255);
+                color: $dark-blue;
+                border: 2px solid $dark-blue;
+            }
+        }
+    }
+
+    #appt{
+        width: 80%;
+        margin-left: 9%;
+        margin-bottom: 2%;
+        border-radius: 10px;
+    }
+
+    #data1{
+        color: $dark-blue;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        margin: 5vh 5vw;
+    }
+
+    #data2{
+        color: $dark-blue;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        margin: 2vh 5vw;
+    }
+
+    #bookingForm{
+        padding-top: 5vh;
+        padding-left: 5vw;
+        width: 100%;
+        
+        #labelName{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: $dark-blue;
+        }
+
+        #input{
+            font-family: Arial, Helvetica, sans-serif;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-bottom: 5vh;
+            border: 1px solid $dark-blue;
+            border-radius: 5px;
+            width: 30vw;
+        }
+
+        #submit{
+            margin: 2vh 1vw;
+            padding: 5px 2px;
+            width: 15vw;
+            text-align: center;
+            background-color: $dark-blue;
+            border-radius: 10px;
+            color: #ffffff;
+    
+            &:hover {
+                font-weight: 600;
+                background-color: rgb(255, 255, 255);
+                color: $dark-blue;
+                border: 2px solid $dark-blue;
+            }
+        }
+    }
+}
