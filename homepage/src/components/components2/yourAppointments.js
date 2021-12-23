@@ -3,8 +3,7 @@ import Sidebar from "./sidebar";
 
 function YourAppointments() {
   return (
-    <>
-    <div class="row mt-4">
+    <> <div class="row mt-4">
       <div class="col-sm-3">
         <Sidebar />
       </div>

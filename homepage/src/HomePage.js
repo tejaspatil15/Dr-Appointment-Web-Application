@@ -9,8 +9,6 @@ function FirstPage() {
     return (
 
         <div className="App">
-
-            {/* <h1 className='mainheading'> Medi + Appoint</h1> */}
             <br />
             <br />
 

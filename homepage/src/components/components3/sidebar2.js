@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Sidebar2() {
   return (
     <div>
-      <div style={{ backgroundColor: "#e5f4f9 ", borderRadius: "20px" ,marginBottom: "15ch" , marginTop: "20px"}}>
+      <div style={{ backgroundColor: "#e5f4f9 ", borderRadius: "20px" ,marginBottom: "20ch" , marginTop: "20px"}}>
       <nav class="navbar">
         <ul class="navbar-nav">
 
@@ -18,14 +18,14 @@ function Sidebar2() {
               </a>
             </li>
           </a>
-          <a  href="/dashboardP">
+          {/* <a  href="/dashboardP">
 
             <li class="nav-item link-active">
               <a class="nav-link" href="/dashboardP">
                 <h4>Dashboard</h4>
               </a>
             </li>
-          </a>
+          </a> */}
 
           <a  href="/bookAppointmentsP">
             <li class="nav-item link-active">

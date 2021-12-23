@@ -1,4 +1,4 @@
-import React, {createContext} from 'react'
+import React from 'react'
 import './App.css';
 import { useState } from 'react';
 import { Route, BrowserRouter as Router, Switch, Routes, Link } from "react-router-dom";
@@ -23,19 +23,14 @@ import bot from '../src/bot.png'
 import MainDashboard from './components/components2/maindashboard';
 import ProfileD from './components/components2/profile';
 import YourAppointments from './components/components2/yourAppointments';
-// import YourAppointments from './components/components2/yourAppointments';
-// import Dashboard from './components/components2/dashboard';
-// import Profile from './components/components2/profile'
-// import Sidebar from './components/components2/sidebar';
+import Dashboard from './components/components2/dashboard';
 //Suyog's componenets
 import MainDashboard2 from './components/components3/maindashboard2'
 import ProfileP from './components/components3/profileP';
 import YourAppointments2 from './components/components3/yourAppointments2';
-// import { VerticalNavbar } from './contents/navbar';
-
+// import Dashboard2 from './components/components3/dashboard2';
 
 const App = (props) => {
-  // export const UserContext = createContext();
 
   let [showChat, setShowChat] = useState(false);
   const startChat = () => { setShowChat(true); }
@@ -66,28 +61,23 @@ const App = (props) => {
             <Route exact path='/RegisterP' component={RegisterP} />
             <Route exact path='/RegisterD' component={RegisterD} />
 
-            {/* <VerticalNavbar /> */}
-            {/* <Route path='/vnavbar' component={VerticalNavbar} /> */}
 
             <Route path='/ddashboard' component={MainDashboard} />
-            <Route path='/pdashboard' component={MainDashboard2} />
             <Route path="/profileD" exact component={ProfileD} />
             <Route path="/yourAppointmentsD" exact component={YourAppointments} />
+            <Route path='/dashboardD' component={Dashboard} />
+
+            <Route path='/pdashboard' component={MainDashboard2} />
             <Route path="/profileP" exact component={ProfileP} />
             <Route path="/bookAppointmentsP" exact component={YourAppointments2} />
+            {/* <Route path='/dashboardP' component={Dashboard2} /> */}
             
-            {/* <MainDashboard2 /> */}
-
 
           </Switch>
         </Router>
-        {/* <MainDashboard /> */}
-        {/* <MainDashboard2/> */}
+   
         <Mainfooter />
         <Footer />
-
-        {/* <VerticalNavbar /> */}
-
 
       </div>
     </>

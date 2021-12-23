@@ -1,5 +1,6 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import Sidebar2 from "./sidebar2"
 
 function Dashboard2() {
   const data = [
@@ -36,6 +37,11 @@ function Dashboard2() {
     },
   ];
   return (
+    <> <div class="row mt-4">
+    <div class="col-sm-3">
+      <Sidebar2 />
+    </div>
+    <div class="col-sm-9" >
     <div class="mt-4 mb-4">
       <div style={{ backgroundColor: "#e5f4f9 ", borderRadius: "10px" }}>
         <div style={{ padding: "10px" }}>
@@ -104,6 +110,9 @@ function Dashboard2() {
         </div>
       </div>
     </div>
+    </div>
+    </div>
+    </>
   );
 }
 
