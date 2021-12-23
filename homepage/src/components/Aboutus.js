@@ -21,7 +21,11 @@ export function Aboutus() {
 
 				<p style={{ fontSize: "23px" }}>Medi Appoint is the worlds leading healthcare platform that connects millions
 					of patients with hundreds of thousands of healthcare providers around the
-					world and helps people make better.
+					world and helps people make better. <br /> <br />
+					In healthcare, the information around our medicines and lab tests is either unavailable or incomprehensible to us.
+					So we decided to create a platform that stood for transparent, authentic and accessible information for all. <br />
+					What we offer :
+					We provide accurate & trustworthy information and help people use their time effectively while booking an Appointment with a doctor.
 				</p>
 
 			</Column>

@@ -14,8 +14,8 @@ function Contactus() {
                 Contact us
             </h5>
             <p style={{ fontSize: "23px", marginLeft: "45px", paddingBottom: "13ch" }}>
-                Contact No : 6664445558 <br />
-                Mail ID : xyz@persistent.com
+                Contact No : +91 6664445558 <br />
+                Mail ID : support@mediappoint.com
             </p>
 
         </>

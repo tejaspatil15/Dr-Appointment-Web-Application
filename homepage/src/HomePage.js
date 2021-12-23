@@ -1,6 +1,8 @@
 // import logo from './logo.svg';
 import './App.css';
 import Poster from './Assets/Poster.png'
+import SearchBar from "./SearchBar";
+import BookData from "./dataset.json";
 
 
 function FirstPage() {
@@ -22,13 +24,15 @@ function FirstPage() {
 
             <div class="wrapper">
                 <div class="searchBar">
-                    <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search your city.." />
-                    <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">Q
+                    {/* <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search your city.." /> */}
+                    {/* <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">Q */}
                         {/* <a className='seachBtn' href="./doclist" class="btn btn-primary"> Search{""} </a> */}
                         {/* <svg width="100" height="100">
                             <circle cx="24" cy="22" r="20" stroke="green" stroke-width="4" fill="blue" />
                         </svg> */}
-                    </button>
+                    {/* </button> */}
+                    <SearchBar placeholder="Enter your city or Dr name.." data={BookData} />
+
                 </div>
             </div>
             <br />

@@ -3,34 +3,34 @@ import "./sidebar.css";
 import { Link } from "react-router-dom";
 
 
-function Sidebar() {
+function Sidebar2() {
   return (
     <div>
-      <div style={{ backgroundColor: "#e5f4f9 ", borderRadius: "20px",marginBottom: "15ch" , marginTop: "20px" }}>
+      <div style={{ backgroundColor: "#e5f4f9 ", borderRadius: "20px" ,marginBottom: "15ch" , marginTop: "20px"}}>
       <nav class="navbar">
         <ul class="navbar-nav">
 
-          <a href="/profileD">
+          <a href="/profileP">
 
             <li class="nav-item link-active">
-              <a class="nav-link" href="/profileD">
+              <a class="nav-link" href="/profileP">
                 <h4>Profile</h4>
               </a>
             </li>
           </a>
-          <a  href="/dashboardD">
+          <a  href="/dashboardP">
 
             <li class="nav-item link-active">
-              <a class="nav-link" href="/dashboardD">
+              <a class="nav-link" href="/dashboardP">
                 <h4>Dashboard</h4>
               </a>
             </li>
           </a>
 
-          <a  href="/yourAppointmentsD">
+          <a  href="/bookAppointmentsP">
             <li class="nav-item link-active">
-              <a class="nav-link" href="/yourAppointmentsD">
-                <h4>Your Appointments</h4>
+              <a class="nav-link" href="/bookAppointmentsP">
+                <h4>Book Appointment</h4>
               </a>
             </li>
           </a>
@@ -48,4 +48,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default Sidebar2;

@@ -19,7 +19,12 @@ export function Termsandconditions() {
 			</h5>
 			<Column>
 
-				<p style={{ fontSize: "23px"  }}>			Aenean molestie sed quam vitae malesuada. Duis rutrum, enim id fringilla aliquet, elit mi posuere nulla, vel hendrerit purus justo non magna. Mauris convallis dapibus diam. Nam efficitur rhoncus dolor. Curabitur gravida ut tellus nec mollis. In hac habitasse platea dictumst. Quisque viverra ut tortor quis blandit. Maecenas non fermentum metus. Suspendisse egestas nisl et nisl lobortis, id consequat enim egestas. Quisque at consequat ligula. Quisque urna magna, aliquam vel scelerisque pretium, pulvinar sed ipsum. Cras faucibus luctus mi, id aliquet ipsum faucibus id. In nec neque porta, dapibus quam a, euismod velit.
+				<p style={{ fontSize: "23px"  }}>	
+				The doctor is a doctor with the right of free practice, holds a license in the declared medical field and wants to offer telemedical services using the platform owned by MediAppoint.
+
+The purpose of this Terms & Conditions is to provide patients (beneficiaries of telemedicine services offered by the Physician through the MediAppoint platform), remote access to specialized telemedicine advice or a second opinion, after the patient performs a telemedicine check.
+
+The doctor became acquainted with MediAppoint’s technology, understood, appreciates it as positive and is willing to use it in both the relationship’s with MediAppoint and with its patients – final beneficiaries of the services provided – considering the provisions of this agreement.
 
 				</p>
 

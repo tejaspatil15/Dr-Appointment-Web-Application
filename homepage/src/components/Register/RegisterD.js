@@ -1,111 +1,214 @@
-import {React,useState} from "react";
-import {
-  // createUserWithEmailAndPassword,
-  // signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
-import {BrowserRouter as Router , Route,Switch,useHistory} from 'react-router-dom';
-import { auth } from '../firebase-config';
-import { Form,Col,Row,Button } from "react-bootstrap";
+import { React, useState } from "react";
+// import {
+//   // createUserWithEmailAndPassword,
+//   // signInWithEmailAndPassword,
+//   onAuthStateChanged,
+//   signOut,
+// } from "firebase/auth";
+import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
+// import { auth } from '../firebase-config';
+import { Form, Col, Row, Button } from "react-bootstrap";
 import './Register.css'
 import LoginPage from "../Loginpage/LoginPage";
 
-const RegisterD = () =>{
+const RegisterD = () => {
 
   let history = useHistory();
-
-  const [user, setUser] = useState({});
-
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
-  const logout = async () => {
-    await signOut(auth);
-    return history.push('/login') ;
-  };
-
-     return(
-       <>
-          
   
-         <Router>
-          <Switch>
-            <Route exact path='/login' component={LoginPage}/> 
-            {/* <Route exact path='/RegisterP' component={RegisterP}/>  */}
-            {/* <Route exact path='/RegisterD' component={RegisterD}/>  */}
-            {/* <Route exact path='/Signup' component={Signup}/>  */}
+  const [user, setUser] = useState({
+    name:"",email:"",phone:"",age:"",address:"",qualification:"",specilization:"",password:"",cpassword:""
+  });
+   
+  let name,value;
 
-          </Switch>
-        </Router>
+  const handleInputs = (e) =>{
+      console.log(e);
+      name=e.target.name;
+      value=e.target.value;
 
-      <div >
-      <div className="Signout"> 
-      {user?.email}<Button onClick={logout} variant="primary"  type="submit">Signout</Button>
-    </div>
-        <div className="hal2">
-            
-             <Form className="p-2 mt-3  ">
-             <div className="label p-2"><h3>Enter Your Details:</h3></div>
-  <Form.Group as={Row} className="mb-4 " controlId="validationCustom01">
-    <Form.Label column sm={3} className="label">
-      Name:
-    </Form.Label>
-    <Col sm={6}>
-      <Form.Control required type="text" placeholder="Enter name" required/>
-    </Col>
-  </Form.Group>
+      setUser({...user, [name]:value});
 
-  <Form.Group as={Row} className="mb-4" controlId="formHorizontaltel">
-    <Form.Label column sm={3} className="label">
-      Contact No:
-    </Form.Label>
-    <Col sm={6}>
-      <Form.Control pattern="[0-9].{9,}" title="Enter valid number"  type="tel" placeholder="Enter contact number" required />
-    </Col>
-  </Form.Group>
+  }
 
-  <Form.Group as={Row} className="mb-4" controlId="formHorizontaltel">
-    <Form.Label column sm={3} className="label">
-      Emergency Contact No:
-    </Form.Label>
-    <Col sm={6}>
-      <Form.Control pattern="[0-9].{9,}" title="Enter valid number"  type="tel" placeholder="Enter emergency contact number" required />
-    </Col>
-  </Form.Group>
+  const PostData = async(e)=>{
+      e.preventDefault();
+      const{name,email,phone,age,address,qualification,specilization,password,cpassword}=user;
 
-  <Form.Group as={Row} className="mb-4" controlId="formHorizontaltext">
-    <Form.Label column sm={3} className="label">
-      Age:
-    </Form.Label>
-    <Col sm={6}>
-      <Form.Control pattern="[0-9].{0,2}" title="Enter valid Age" type="text" placeholder="Enter your age"  />
-    </Col>
-  </Form.Group>
+      const res=await fetch("/register1",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          name,email,phone,age,address,qualification,specilization,password,cpassword
+        })
+      });
+      const data = await res.json();
+      if(res.status===422||!data){
+        window.alert("Invalid Registration");
+        console.log("Invalid Registration");
+      }else{
+        window.alert(" Registration Successful");
+        console.log(" Registration Successful");
+        history.push("/login");
+      }
+  }
 
-  <Form.Group as={Row} className="mb-4" controlId="formHorizontaladdress">
-    <Form.Label column sm={3} className="label">
-      Address of clinic:
-    </Form.Label>
-    <Col sm={6}>
-      <Form.Control type="address" placeholder="Enter clinic address" required />
-    </Col>
-  </Form.Group>
+  return (
+    <>
 
-  <Form.Group as={Row} className="mb-4" controlId="formHorizontaladdress">
-  <Form.Label column sm={3} className="label"></Form.Label>
-    <Col sm={6}>
-    <Button  variant="primary "  type="submit">Submit</Button>
-    </Col>
-  </Form.Group>
 
-  </Form>
-  </div> 
-  </div>  
-  </> 
+      <Router>
+        <Switch>
+          <Route exact path='/login' component={LoginPage} />
+          {/* <Route exact path='/RegisterP' component={RegisterP}/>  */}
+          {/* <Route exact path='/RegisterD' component={RegisterD}/>  */}
+          {/* <Route exact path='/Signup' component={Signup}/>  */}
 
-     );
+        </Switch>
+      </Router>
+
+
+
+      <div className="hal2 bottom" >
+
+
+
+        <Form method="POST" className="p-2 mt-3 ">
+          <div className="label p-2"><h3>Enter Your Details:</h3></div>
+          <Form.Group as={Row} className="mb-4 " >
+            <Form.Label column sm={3} className="label">
+              Name:
+            </Form.Label>
+            <Col sm={6}>
+              <Form.Control type="text" placeholder="Enter name" name="name" id="name"
+                value={user.name}
+                onChange={handleInputs} required />
+            </Col>
+          </Form.Group>
+
+          {/* <Form.Group className="mb-3" >
+<Form.Label>Email address</Form.Label>
+<Form.Control type="email" placeholder="Enter email" id="pass3" name="pas3" />
+
+</Form.Group> */}
+
+          <Form.Group as={Row} className="mb-4" >
+            <Form.Label column sm={3} className="label">
+              Email address:
+            </Form.Label>
+            <Col sm={6}>
+              <Form.Control title="Enter valid number" autoComplete="off" type="email" name="email" id="email"
+                value={user.email}
+                onChange={handleInputs}
+                placeholder="Enter email" required />
+            </Col>
+          </Form.Group>
+
+
+          <Form.Group as={Row} className="mb-4" >
+            <Form.Label column sm={3} className="label">
+              Contact No:
+            </Form.Label>
+            <Col sm={6}>
+              <Form.Control pattern="[0-9].{9,10}" title="Enter valid number" name="phone" id="phone" type="tel" autoComplete="off"
+                value={user.phone}
+                onChange={handleInputs}
+                placeholder="Enter contact number" required />
+            </Col>
+          </Form.Group>
+
+
+
+          <Form.Group as={Row} className="mb-4" >
+            <Form.Label column sm={3} className="label">
+              Age:
+            </Form.Label>
+            <Col sm={6}>
+              <Form.Control pattern="[0-9].{0,1}" title="Enter valid Age" name="age" id="age" type="text" autoComplete="off"
+                value={user.age}
+                onChange={handleInputs}
+                placeholder="Enter your age" required />
+            </Col>
+          </Form.Group>
+
+     
+
+
+          <Form.Group as={Row} className="mb-4" >
+            <Form.Label column sm={3} className="label">
+              Address:
+            </Form.Label>
+            <Col sm={6}>
+              <Form.Control type="address" placeholder="Enter address" name="address" id="address" autoComplete="off"
+                value={user.address}
+                onChange={handleInputs}
+                required />
+            </Col>
+          </Form.Group>
+
+   
+
+          <Form.Group as={Row} className="mb-4" >
+            <Form.Label column sm={3} className="label">
+              Specilization:
+            </Form.Label>
+            <Col sm={6}>
+              <Form.Control type="text" placeholder="Enter Specilization" name="specilization" id="specilization" autoComplete="off"
+                value={user.specilization}
+                onChange={handleInputs}
+                required />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-4" >
+            <Form.Label column sm={3} className="label">
+              Educational Qualification:
+            </Form.Label>
+            <Col sm={6}>
+              <Form.Control type="text" placeholder="Enter Educational Qualification" name="qualification" id="qualification" autoComplete="off"
+                value={user.qualification}
+                onChange={handleInputs}
+                required />
+            </Col>
+          </Form.Group>
+
+          <Form.Group as={Row} className="mb-4" >
+            <Form.Label column sm={3} className="label">
+              Password:
+            </Form.Label>
+            <Col sm={6}>
+              <Form.Control pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password" placeholder="Enter password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" id="password" autoComplete="off" value={user.password}
+                onChange={handleInputs}
+                required />
+            </Col>
+          </Form.Group>
+
+          <Form.Group as={Row} className="mb-4" >
+            <Form.Label column sm={3} className="label">
+              Confirm Password:
+            </Form.Label>
+            <Col sm={6}>
+              <Form.Control pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password" placeholder="Confirm password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="cpassword" id="cpassword" autoComplete="off"
+                value={user.cpassword}
+                onChange={handleInputs}
+                required />
+            </Col>
+          </Form.Group>
+
+
+          <Form.Group as={Row} className="mb-4" >
+            <Form.Label column sm={3} className="label"></Form.Label>
+            <Col sm={6}>
+              <Button onClick={PostData} variant="primary" type="submit">Register</Button>
+            </Col>
+          </Form.Group>
+
+        </Form>
+      </div>
+
+    </>
+
+  );
 
 
 };

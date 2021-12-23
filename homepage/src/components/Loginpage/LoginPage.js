@@ -1,47 +1,80 @@
 import { React, useState } from 'react';
-import {
-  // createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-} from "firebase/auth";
+// import {
+//   // createUserWithEmailAndPassword,
+//   signInWithEmailAndPassword,
+//   onAuthStateChanged,
+//   signOut
+// } from "firebase/auth";
 import './Login.css'
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom'
 import image1 from '../../images/image1.svg';
 import Signup from '../Signup/Signup';
-import { auth } from '../firebase-config';
+// import ProfileD from '../components2/profile';
+// import ProfileP from '../components3/profileP';
+import MainDashboard from '../components2/maindashboard';
+// nimport { auth } from '../firebase-config';
+import MainDashboard2 from '../components3/maindashboard2';
 
 
 const LoginPage = () => {
 
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  let history = useHistory();
 
-  const [user, setUser] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  // const [user, setUser] = useState({});
 
-  const logout = async () => {
-    await signOut(auth);
-  };
+  const loginUser = async (e) => {
+    e.preventDefault();
 
-  const login1 = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-      alert(error.message);
+    const res = await fetch('/signin', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email, password
+      })
+    });
+
+    const data = res.json();
+
+    if (res.status === 400 || !data) {
+      window.alert("Invalid Credentials");
+
+    } else {
+      window.alert("Login successful");
+      history.push('/pdashboard');
     }
+  }
 
-  };
+  const loginUser1 = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch('/signin1', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email, password
+      })
+    });
+
+    const data = res.json();
+
+    if (res.status === 400 || !data) {
+      window.alert("Invalid Credentials");
+
+    } else {
+      window.alert("Login successful");
+      history.push('/ddashboard');
+    }
+  }
+
+
 
   return (
     <>
@@ -50,7 +83,17 @@ const LoginPage = () => {
           {/* <Route exact path='/login' component={LoginPage}/>  */}
           {/* <Route exact path='/RegisterP' component={RegisterP}/>  */}
           {/* <Route exact path='/RegisterD' component={RegisterD}/>  */}
+          {/* <Route exact path='/ddashboard' component={MainDashboard} />
+          <Route exact path='/pdashboard' component={MainDashboard2} /> */}
+
           <Route exact path='/Signup' component={Signup} />
+          {/* <Route path="/profileD" exact component={ProfileD} />
+            <Route path="/profileP" exact component={ProfileP} /> */}
+          {/* <Route path="/dashboardD" exact component={Dashboard} /> */}
+          {/* <Route path="/yourAppointmentsD" exact component={YourAppointments} /> */}
+
+
+
 
         </Switch>
       </Router>
@@ -60,25 +103,31 @@ const LoginPage = () => {
         <Row>
           <Col lg={4} md={6} sn={12} className="p-3 mt-4 hal">
             <h3 className="user">User Login </h3>
-            <Form>
+            <Form method="POST">
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control onChange={(event) => {
-                  setLoginEmail(event.target.value);
-                }} type="email" placeholder="Enter email" required />
+                <Form.Control type="email"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" onChange={(event) => {
-                  setLoginPassword(event.target.value);
-                }} required />
+                <Form.Control type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required />
               </Form.Group>
 
 
-              <div className="d-grid gap-2">
-                <Button onClick={login1} id="btn1" variant="primary btn-block" type="reset">Login</Button>
+              <div className=" gap-1">
+                <Button id='but1' onClick={loginUser} variant="primary" type="submit">Login as a patient</Button>
+                <Button onClick={loginUser1} variant="primary " type="submit">Login as a doctor</Button>
               </div>
+
+
 
 
               <div className="text-left mt-3">
@@ -91,9 +140,7 @@ const LoginPage = () => {
           <Col lg={8} md={6} sn={12}> <img className="w-100" src={image1} alt="" /></Col>
         </Row>
 
-        <h4> User Logged In: </h4>{user?.email}
 
-      <button onClick={logout}> Sign Out </button>
 
       </Container>
 

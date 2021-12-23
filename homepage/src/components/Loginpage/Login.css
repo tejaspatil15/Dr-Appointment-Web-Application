@@ -9,12 +9,7 @@
     border-color: #813AFE;
 
 }
-#btn1{
-    color:#fff;
-    background-color: #813AFE;
-    border-color: #813AFE;
-    text-align: center;
-}
+
 .reset{
     color: black;
 }
@@ -29,6 +24,10 @@
        inset 0 -3em 3em rgba(0,0,0,0.1),
              0 0  0 2px rgb(255,255,255),
              0.3em 0.3em 1em rgba(0,0,0,0.3);
-
-  
+}
+#but1{
+    padding-left:10px ;
+    padding-right: 10px;
+    margin-right: 15px;
+    margin-left: 10px;
 }

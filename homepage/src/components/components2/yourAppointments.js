@@ -3,6 +3,12 @@ import Sidebar from "./sidebar";
 
 function YourAppointments() {
   return (
+    <>
+    <div class="row mt-4">
+      <div class="col-sm-3">
+        <Sidebar />
+      </div>
+      <div class="col-sm-9" >
     <div class="mt-4 mb-4">
       <div style={{ backgroundColor: " #e5f4f9 ", borderRadius: "10px" }}>
         <div style={{ padding: "5px"}}>
@@ -32,6 +38,10 @@ function YourAppointments() {
         </div>
       </div>
     </div>
+
+    </div>
+    </div>
+    </>
   );
 }
 

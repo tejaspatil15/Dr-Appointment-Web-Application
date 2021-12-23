@@ -1,7 +1,7 @@
 import React from "react";
 import Dashboard from "./dashboard";
 import YourAppointments from "./yourAppointments";
-import Profile from "./profile";
+import ProfileD from "./profile";
 import Sidebar from "./sidebar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -16,7 +16,7 @@ export default function MainDashboard() {
         <div class="col-sm-9" >
 
           <Switch>
-            <Route path="/profileD" exact component={Profile} />
+            <Route path="/profileD" exact component={ProfileD} />
             <Route path="/dashboardD" exact component={Dashboard} />
             <Route path="/yourAppointmentsD" exact component={YourAppointments} />
 
