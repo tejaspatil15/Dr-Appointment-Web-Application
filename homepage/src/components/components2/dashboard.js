@@ -53,10 +53,10 @@ function Dashboard() {
               <h3>
                 Appointments due
                 <br />
-                for this month:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 123
+                for this month: 34
               </h3>
               <br />
-              <h3> Total Appointments : 123</h3>
+              <h3> Total Appointments : 157</h3>
             </div>
             <div class="col-sm-6">
               <h3> Patients Demographics</h3>
