@@ -1,0 +1,94 @@
+.App {
+    margin: 1rem;
+    text-align: center;
+}
+
+.poster {
+  border-color: rgb(70, 70, 70);
+  cursor: pointer;
+  height:280px; 
+  width:1100px; 
+  border-image: 4pc;
+  border-radius: 30px;
+}
+
+.About {
+    margin-left: 9pc;
+    text-align: left;
+}
+
+.card {
+  box-sizing: border-box;
+  margin: 0.5pc;
+  padding: 1pc;
+}
+.card-body {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+    transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+    padding: 14px 80px 18px 36px;
+    cursor: pointer;
+}
+.card:hover {
+    transform: scale(1.05);
+    transition: 400ms;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+/* .abc{
+  background-color: rgb(206, 105, 74);
+  color: tomato;
+} */
+
+.wrapper {
+  width: 100%;
+  max-width: 40rem;
+  margin-left:23ch;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#searchQueryInput {
+  width: 100%;
+  height: 2.8rem;
+  background: #f5f5f5;
+  outline: none;
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+}
+
+#searchQuerySubmit {
+  width: 3.5rem;
+  height: 2.8rem;
+  margin-left: -3.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#searchQuerySubmit:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+.bot {
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  width: 350px;
+  margin-left: 20px;
+  /* position:absolute; */
+}
+.btn2{
+  font-size: 20px;
+  float: right;
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+}

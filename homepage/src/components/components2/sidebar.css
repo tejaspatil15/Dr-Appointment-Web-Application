@@ -1,0 +1,9 @@
+.link-active:hover{
+    text-decoration: underline;
+    border-radius: "20px";
+}
+/* .navbar-nav{
+
+    background-color: transparent;
+}
+    */
